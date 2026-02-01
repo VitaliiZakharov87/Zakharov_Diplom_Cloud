@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - include:
+      file: migrations/users_table.sql
+      relativeToChangelogFile: true
+  - include:
+      file: migrations/items_table.sql
+      relativeToChangelogFile: true
+  - include:
+      file: migrations/insert_into_users.sql
+      relativeToChangelogFile: true

@@ -1,0 +1,54 @@
+### Login to Cloud
+POST http://localhost:8088/login
+Content-Type: application/json
+
+{
+  "login": "z@mail.ru",
+  "password": "zvs"
+}
+
+### Logout from Cloud
+POST http://localhost:8088/logout
+auth-token: lex34pou5p9834u5n3span394u58u09
+
+### Get File List stored in Cloud
+GET http://localhost:8088/list?limit=10
+auth-token: ywt7XnAc8NOhDt3Wd9w_x2BOccX66MtI
+
+### Get (download) File from Cloud
+GET http://localhost:8088/file?filename=sample_file.json
+auth-token: ywt7XnAc8NOhDt3Wd9w_x2BOccX66MtI
+
+### Upload file up to Cloud
+POST http://localhost:8088/file?filename=sample_file.json
+auth-token: ywt7XnAc8NOhDt3Wd9w_x2BOccX66MtI
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="sample_file.json"
+Content-Type: application/json
+
+< ./sample_file.json
+--WebAppBoundary
+
+### Update filename on Cloud
+PUT http://localhost:8088/file?filename=sample_file.json
+auth-token: lex34pou5p9834u5n3span394u58u09
+Content-Type: application/json
+
+{
+  "filename": "sample_file_renamed.json"
+}
+
+### Update filename on Cloud
+PUT http://localhost:8088/file?filename=sample_file_renamed.json
+auth-token: lex34pou5p9834u5n3span394u58u09
+Content-Type: application/json
+
+{
+  "filename": "1-sample_file.json"
+}
+
+### Delete file from Cloud
+DELETE http://localhost:8088/file?filename=sample_file.json
+auth-token: lex34pou5p9834u5n3span394u58u09
